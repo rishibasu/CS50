@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pairings
+{% endblock %}
+
+{% block main %}
+
+    <form action="/pairings" method="post">
+    <font size="7" color="black"> Round {{ current_round }}</font>
+    <p></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <b>
+                <th scope="col">Board</th>
+                <th scope="col">White</th>
+                <th scope="col">Black</th>
+                <th scope="col">Result</th>
+                </b>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <table class="table table-striped">
+                        <tr>
+                        {% for i in range(n) %}
+                            <td>
+                                {{ i+1}}
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+
+                <td>
+                    <table class="table table-striped">
+                        </tr>
+                        {% for pair in pairing  %}
+
+                            <td>
+                                {{  pair.white  }}
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </td>
+
+                <td>
+                    <table class="table table-striped">
+                        </tr>
+                        {% for pair in pairing  %}
+                            <td>
+                                {{  pair.black }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+
+
+                <td>
+                    <table class="table table-striped">
+                        <tr>
+                        {% for i in range(n) %}
+                            <td>
+                                <div class="form-check form-check-inline" required>
+                                    <input class="form-check-input" type="radio" name="{{i}}" id="inlineCheckbox1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">white</label>
+
+                                </div>
+                                <div class="form-check form-check-inline">
+                                     <input class="form-check-input" type="radio" name="{{i}}" id="inlineCheckbox2" value="option2">
+                                     <label class="form-check-label" for="inlineRadio2">black</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                     <input class="form-check-input" type="radio" name="{{i}}" id="inlineCheckbox3" value="option3">
+                                     <label class="form-check-label" for="inlineRadio3">draw</label>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+
+        <button class="btn btn-primary" type="submit">Update Scores</button>
+    </form>
+
+{% endblock %}
+
+<!--
+{% for i in range(n) %}
+        <td>
+            <div class="form-check form-check-inline" required>
+                <input class="form-check-input" type="radio" name="{{i}}" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">white</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="{{i}}" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">black</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="{{i}}" id="inlineCheckbox3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">draw</label>
+            </div>
+        </td>
+    </tr>
+{% endfor %}

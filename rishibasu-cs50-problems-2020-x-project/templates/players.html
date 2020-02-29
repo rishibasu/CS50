@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Players
+{% endblock %}
+
+{% block main %}
+    <script>
+        i=4;
+        function display()
+        {
+
+            a=document.getElementById("Names");
+            b=document.createElement("input");
+            b.setAttribute("type","text");
+            b.setAttribute("placeholder","Name");
+            b.setAttribute("name","t"+(i));
+            b.setAttribute("class","form-control");
+            var p = document.createElement("p");
+            i++;
+
+            a.appendChild(b);
+            a.appendChild(p);
+        }
+    </script>
+
+    <form action="/players" method="post">
+       <!-- <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Quote</button>
+
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Number of players</label>
+            <input type="number" class="form-control" id="playeramount" placeholder="10">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        -->
+
+
+
+        <input type="button" value="Add Player" onClick="display()"><p></p>
+
+        <div>
+            <input type="text" class="form-control" name="t0" placeholder="Name"><p></p>
+        </div>
+        <div>
+            <input type="text" class="form-control" name="t1" placeholder="Name"><p></p>
+        </div>
+        <div>
+            <input type="text" class="form-control" name="t2" placeholder="Name"><p></p>
+        </div>
+        <div>
+            <input type="text" class="form-control" name="t3" placeholder="Name"><p></p>
+        </div>
+
+        <div id="Names"></div></div><p></p>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+
+
+
+{% endblock %}

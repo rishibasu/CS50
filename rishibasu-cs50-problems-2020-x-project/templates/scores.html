@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scores
+{% endblock %}
+
+{% block main %}
+
+    <!-- https://getbootstrap.com/docs/4.3/content/tables/ -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <b>
+                <th scope="col">Rank</th>
+                <th scope="col">Name</th>
+                <th scope="col">Points</th>
+                </b>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in leaderboard  %}
+            <tr>
+                <td>
+                    {{ data.rank }}
+                </td>
+                <td>
+                    {{  data.Name  }}
+                </td>
+                <td>
+                    {{  data.score  }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <form action="/scores" method="post">
+        <button class="btn btn-primary" type="submit">{{message}}</button>
+    </form>
+
+{% endblock %}
